@@ -5,11 +5,13 @@
 # You can specify a custom docker image from Docker Hub as your build environment.
 # image: atlassian/default-image:latest
 
-image: scorpil/rust:nightly
+image: atlassianlabs/buildpack-deps-rust
 
 pipelines:
   branches:
     master:
-      - step:
+      step:
         script:
-          - cargo install
+          - echo "Updates to rustup"                ; rustup self update
+          - echo "Update Rust toolchain"            ; rustup update
+          - echo "Build project"                    ; cargo build --release
