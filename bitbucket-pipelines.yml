@@ -10,7 +10,7 @@ image: atlassianlabs/buildpack-deps-rust
 pipelines:
   branches:
     master:
-      step:
+      - step:
         script:
           - echo "Updates to rustup"                ; rustup self update
           - echo "Update Rust toolchain"            ; rustup update
