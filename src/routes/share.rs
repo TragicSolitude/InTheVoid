@@ -12,8 +12,7 @@ use UPLOAD_DIR;
 #[post("/", data = "<file>")]
 pub fn index_file(file: Data) -> io::Result<JSON<NewShareResponse>> {
     let uuid: String = get_uuid();
-    let path_str: &str = &format!("{}{}", UPLOAD_DIR, uuid);
-    let share_path: &Path = Path::new(path_str);
+    let share_path: &Path = Path::new(&format!("{}{}", UPLOAD_DIR, uuid));
     let mut file_handle: File = try!(File::create(share_path));
     let bytes_written: u64 = try!(io::copy(&mut file.open(), &mut file_handle));
     Ok(JSON(NewShareResponse { id: uuid, bytes: bytes_written }))
