@@ -12,7 +12,4 @@ pipelines:
     master:
       - step:
           script:
-            - echo "Updates to rustup"                ; rustup self update
-            - echo "Use nightly toolchain"            ; rustup default nightly
-            - echo "Update Rust toolchain"            ; rustup update
             - echo "Build project"                    ; cargo build --release
