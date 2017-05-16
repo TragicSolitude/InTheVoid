@@ -11,3 +11,13 @@ pub fn index() -> Template {
 
     Template::render("helpdesk/index", &context)
 }
+
+#[post("/new", format = "multipart/form-data")]
+pub fn post_new() -> &'static str {
+    
+}
+
+#[get("/new")]
+pub fn new() -> Template {
+    
+}
