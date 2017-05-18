@@ -1,0 +1,22 @@
+{
+  "name": "inthevoid",
+  "authors": [
+    "Noah Shuart <shuart.noah@gmail.com>"
+  ],
+  "description": "",
+  "main": "src/main.rs",
+  "license": "MIT",
+  "homepage": "http://inthevoid.us/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "statikk/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
