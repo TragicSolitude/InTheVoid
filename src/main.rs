@@ -1,7 +1,6 @@
 #![feature(plugin)]
 #![plugin(rocket_codegen)]
 
-
 extern crate serde_json;
 extern crate rocket;
 extern crate rocket_contrib;
@@ -14,7 +13,7 @@ use std::fs;
 use std::path::Path;
 
 // Path is relative to cwd
-static UPLOAD_DIR: &str = "./files/";
+static UPLOAD_DIR: &str = "files/";
 
 mod models;
 mod routes;

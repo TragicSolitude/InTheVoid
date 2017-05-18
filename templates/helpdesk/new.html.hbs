@@ -1,0 +1,39 @@
+{{#*inline "page"}}
+<form method="POST">
+    <div class="col-sm-9">
+        <div class="ba-block">
+            <span class="block-header">New Issue</span>
+                <div class="form-group">
+                    <label for="summary">Summary</label>
+                    <input type="text" class="form-control" name="summary">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea name="description" id="" cols="30" rows="10" class="form-control"></textarea>
+                </div>
+            <div class="col-sm-4 col-sm-offset-4">
+                <div class="btn-group btn-group-justified" role="group">
+                    <a href="/helpdesk" class="btn btn-danger">
+                        <i class="fa fa-times" aria-hidden="true"></i> Cancel
+                    </a>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-success" role="button">
+                            <i class="fa fa-paper-plane" aria-hidden="true"></i> Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="ba-block">
+            <span class="block-header">Images</span>
+            <label class="btn btn-primary btn-file btn-block">
+                Browse <input type="file" style="display:none;">
+            </label>
+            {{!-- List images here (include placeholder thingy) --}}
+        </div>
+    </div>
+</form>
+{{/inline}}
+{{> common/layout}}

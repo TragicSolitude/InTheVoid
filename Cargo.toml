@@ -9,5 +9,12 @@ serde_json = "0.9"
 serde_derive = "0.9"
 rocket = "0.2.6"
 rocket_codegen = "0.2.6"
-rocket_contrib = { version = "*", default-features = false, features = ["json"]}
-uuid = { version = "0.4", features = ["v4"] }
+
+[dependencies.rocket_contrib]
+version = "*"
+default-features = false
+features = ["json", "handlebars_templates"]
+
+[dependencies.uuid]
+version = "0.4"
+features = ["v4"]
