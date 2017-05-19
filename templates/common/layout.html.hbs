@@ -14,6 +14,15 @@
     <![endif]-->
 </head>
 <body>
+    <script>
+        window.notificationBuffer = [];
+        window.notify = function (type, message) {
+            window.notificationBuffer.push({
+                type: type,
+                message: message
+            });
+        };
+    </script>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -41,6 +50,39 @@
             {{~> page}}
         </div>
     </div>
+    <div class="notifications col-md-4 col-sm-8 col-xs-12">
+        <div class="hidden alert alert-dismissable alert-success fade in" id="success_alert"></div>
+        <div class="hidden alert alert-dismissable alert-info fade in" id="info_alert"></div>
+        <div class="hidden alert alert-dismissable alert-warning fade in" id="warning_alert"></div>
+        <div class="hidden alert alert-dismissable alert-danger fade in" id="danger_alert"></div>
+    </div>
+    <script>
+        {
+            let selectors = {};
+            ['success', 'info', 'warning', 'danger']
+                .forEach(v => selectors[v] = document.querySelector(`#${v}_alert`));
+
+            // TODO Buffer the clearing of these notifications so that they all clear out
+            // ... smoothly and one at a time
+            window.notify = function (type, message) {
+                let selector = selectors[type];
+                if (!selector) {
+                    selector = selectors.info;
+                }
+
+                let notification = selector.cloneNode();
+                notification.innerText = message;
+                notification.classList.remove('hidden');
+
+                selector.parentNode.insertBefore(notification, selector.parentNode.firstChild);
+
+                window.setTimeout(() => notification.style.opacity = 0, 3000);
+                // window.setTimeout(() => notification.style.height = 0, 3500)
+                window.setTimeout(() => selector.parentNode.removeChild(notification), 4000);
+            };
+            window.notificationBuffer.forEach(v => window.notify(v.type, v.message));
+        }
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
