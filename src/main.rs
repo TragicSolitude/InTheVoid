@@ -1,4 +1,4 @@
-#![feature(plugin)]
+#![feature(plugin, custom_derive)]
 #![plugin(rocket_codegen)]
 
 extern crate serde_json;
@@ -18,6 +18,12 @@ static UPLOAD_DIR: &str = "files/";
 mod models;
 mod routes;
 
+// TODO Setup some kind of session-esque fuckery to
+// ... send the little toats notifications to users
+// ... from the server (eg. to indicate form submission
+// ... status and whatnot
+// -- Maybe we could set some kind of Response header
+// --- that is read by the client
 fn main() {
     let path = Path::new(UPLOAD_DIR);
     if !path.exists() {

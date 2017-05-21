@@ -1,6 +1,9 @@
 use rocket_contrib::Template;
+use rocket::request::Form;
+use rocket::response::Redirect;
 use models::context::{HelpDeskIndex, HelpDeskNew};
 use models::navigation::get_nav_list;
+use models::form::NewIssueForm;
 
 #[get("/")]
 pub fn index() -> Template {
@@ -23,7 +26,7 @@ pub fn new() -> Template {
     Template::render("helpdesk/new", &context)
 }
 
-#[post("/new", format = "multipart/form-data")]
-pub fn post_new() -> &'static str {
-    "{\"Test\": \"Successful\"}"
+#[post("/new", data="<issue>")]
+pub fn post_new(issue: Form<NewIssueForm>) -> Redirect {
+    Redirect::to("/helpdesk")
 }
