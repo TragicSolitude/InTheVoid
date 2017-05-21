@@ -77,6 +77,8 @@ body {
     margin: 15px;
     flex: 1 0 auto;
     height: auto;
+    background-size: cover;
+    background-position: center;
 }
 
 .iu-list .iu-item:last-child {
@@ -90,5 +92,5 @@ body {
 }
 
 .iu-list .iu-item.iu-placeholder {
-    background: lightgray;
+    background-color: lightgray;
 }

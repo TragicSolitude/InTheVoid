@@ -12,11 +12,6 @@ pub fn index() -> Template {
     Template::render("helpdesk/index", &context)
 }
 
-#[post("/new", format = "multipart/form-data")]
-pub fn post_new() -> &'static str {
-    "{\"Test\": \"Successful\"}"
-}
-
 #[get("/new")]
 pub fn new() -> Template {
     let context = HelpDeskNew {
@@ -26,4 +21,9 @@ pub fn new() -> Template {
     };
 
     Template::render("helpdesk/new", &context)
+}
+
+#[post("/new", format = "multipart/form-data")]
+pub fn post_new() -> &'static str {
+    "{\"Test\": \"Successful\"}"
 }
