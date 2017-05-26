@@ -1,6 +1,6 @@
 #[derive(FromForm)]
 pub struct NewIssueForm {
-    summary: String,
-    description: String,
-    priority: String
+    pub summary: String,
+    pub description: String,
+    pub priority: String
 }

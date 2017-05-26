@@ -19,3 +19,11 @@ pub struct Issue {
     pub description: String,
     pub priority: i32
 }
+
+#[derive(Insertable)]
+#[table_name="issues"]
+pub struct NewIssue {
+    pub summary: String,
+    pub description: String,
+    pub priority: i32
+}
